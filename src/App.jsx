@@ -9,7 +9,7 @@ function App() {
   const [dashState,setdashState]=useState('Games')
   const [OrderBtnShowRemove,setOrderBtnShowRemove]=useState('on');
   useEffect(()=>{
-    axios.patch('https://game-api-hex6.onrender.com/api/v1/MainPage/?banner="main"',{
+    axios.patch('https://www.playwith5.com/el3b-server/api/v1/MainPage/?banner="main"',{
       BayBtn:OrderBtnShowRemove,
     }).then((res)=>{
       window.alert('done');

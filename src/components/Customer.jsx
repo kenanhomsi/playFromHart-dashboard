@@ -35,7 +35,7 @@ const Customer = () => {
         console.log(selectedDate._id);
 
         try{
-          const response=  axios.patch(`https://game-api-hex6.onrender.com/api/v1/Customer/?name="${selectedDate._id}"`, {
+          const response=  axios.patch(`https://www.playwith5.com/el3b-server/api/v1/Customer/?name="${selectedDate._id}"`, {
             OrderStatus:selectedValue
           } ).then((res)=>{
             window.alert('done');
@@ -52,7 +52,7 @@ const Customer = () => {
 
         console.log(selectedReqForDel);
         try{
-          const response=  axios.delete(`https://game-api-hex6.onrender.com/api/v1/Customer/?name="${selectedReqForDel}"`).then((res)=>{
+          const response=  axios.delete(`https://www.playwith5.com/el3b-server/api/v1/Customer/?name="${selectedReqForDel}"`).then((res)=>{
             window.alert('done');
           })
         }
@@ -65,7 +65,7 @@ const Customer = () => {
 
 
     useEffect(()=>{
-        axios.get(`https://game-api-hex6.onrender.com/api/v1/Customer/`).then((res)=>{
+        axios.get(`https://www.playwith5.com/el3b-server/api/v1/Customer/`).then((res)=>{
             setallRequests(res.data);
             console.log(res.data)
             return res

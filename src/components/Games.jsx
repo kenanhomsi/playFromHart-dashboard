@@ -12,7 +12,7 @@ const Games = () => {
     const [NewGame,setNewGame]=useState('off');
     useEffect(()=>{
         if(playerClass){
-        axios.get(`https://game-api-hex6.onrender.com/api/v1/games/filtering/?name="${playerClass}"`).then((res)=>{
+        axios.get(`https://www.playwith5.com/el3b-server/api/v1/games/filtering/?name="${playerClass}"`).then((res)=>{
             setClassGames(res.data.deletegame);
             console.log(res.data.deletegame)
             return res
@@ -27,7 +27,7 @@ const Games = () => {
     let class2=playerClass;
     console.log(gameName,gameExplian,gameUrl,playerClass);
     try{
-      const response=  axios.post(`https://game-api-hex6.onrender.com/api/v1/games`,{
+      const response=  axios.post(`https://www.playwith5.com/el3b-server/api/v1/games`,{
         gameName:gameName,
         briefExplian:gameExplian,
         videoUrl:gameUrl,
@@ -52,23 +52,23 @@ const Games = () => {
     let gameExplian= document.querySelector('.updategameExplain').value;
     let gameUrl= document.querySelector('.updategameUrl').value;
     console.log(oldGameName);
-    let class2=playerClass;
+    // let class2=playerClass;
     let finalDate={}
-    finalDate.class=class2;
+    // finalDate.class=class2;
     if(gameName !=''){
         finalDate.gameName=gameName;
     }
     if(gameExplian !=''){
-        finalDate.gameExplian=gameExplian;
+        finalDate.briefExplian=gameExplian;
     }
     if(gameUrl !=''){
-        finalDate.gameUrl=gameUrl;
+        finalDate.videoUrl=gameUrl;
     }
     console.log(finalDate);
     try{
-      const response=  axios.patch(`https://game-api-hex6.onrender.com/api/v1/games/?name="${finalDate.class}"`, finalDate ).then((res)=>{
+      const response=  axios.patch(`https://www.playwith5.com/el3b-server/api/v1/games/?name="${oldGameName}"`, finalDate ).then((res)=>{
         window.alert('done');
-      })
+      }).catch((err)=>console.log(err))
     }
     catch(err){
       console.log(err)
@@ -84,7 +84,7 @@ const Games = () => {
     let oldClass=document.getElementById('deleteGameselected').value;
     console.log(oldClass);
     try{
-      const response=  axios.delete(`https://game-api-hex6.onrender.com/api/v1/games/?name="${oldClass}"`).then((res)=>{
+      const response=  axios.delete(`https://www.playwith5.com/el3b-server/api/v1/games/?name="${oldClass}"`).then((res)=>{
         window.alert('done');
       })
     }
@@ -161,7 +161,7 @@ const Games = () => {
                 ClassGames &&
               ClassGames.map((ele,index)=>{
                 return(
-                  <option key={index} id='updateGameselect' value={ele.gameName}>
+                  <option key={index} id='updateGameselect' value={ele._id}>
                       {ele.gameName}
                   </option>
                 )

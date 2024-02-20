@@ -10,7 +10,7 @@ const PlayerClass =  () => {
     let playerExplian= document.querySelector('.newPlayerExplain').value;
     console.log(playerExplian);
     try{
-      const response=  axios.post(`https://game-api-hex6.onrender.com/api/v1/playerclass/`,{
+      const response=  axios.post(`https://www.playwith5.com/el3b-server/api/v1/playerclass/`,{
         playerclass:newClass,
         briefExplian:playerExplian
       }).then((res)=>{
@@ -28,7 +28,7 @@ const PlayerClass =  () => {
     let oldClass=document.getElementById('updateplayers').value;
     let newClass =document.querySelector('.updateClass').value;
     try{
-      const response=  axios.patch(`https://game-api-hex6.onrender.com/api/v1/playerclass/?class="${oldClass}"`,{
+      const response=  axios.patch(`https://www.playwith5.com/el3b-server/api/v1/playerclass/?class="${oldClass}"`,{
         playerclass:newClass
       }).then((res)=>{
         window.alert('done');
@@ -45,7 +45,7 @@ const PlayerClass =  () => {
   if(deletePlayerclass==='on'){
     let oldClass=document.getElementById('deleteplayers').value;
     try{
-      const response=  axios.delete(`https://game-api-hex6.onrender.com/api/v1/playerclass/?class="${oldClass}"`).then((res)=>{
+      const response=  axios.delete(`https://www.playwith5.com/el3b-server/api/v1/playerclass/?class="${oldClass}"`).then((res)=>{
         window.alert('done');
       })
     }
