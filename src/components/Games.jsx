@@ -50,15 +50,12 @@ const Games = () => {
     setNewGame('off');
   }
 
-  if(updateGame==='on'){
-    let oldGameName=document.querySelector('#updateGameselect').value;
+  if(updateGame === 'on'){
+    let oldGameName=document.querySelector('#updategames').value;
     let gameName =document.querySelector('.updategameName').value;
     let gameExplian= document.querySelector('.updategameExplain').value;
     let gameUrl= document.querySelector('.updategameUrl').value;
-    console.log(oldGameName);
-    // let class2=playerClass;
-    let finalDate={}
-    // finalDate.class=class2;
+    let finalDate = { };
     if(gameName !=''){
         finalDate.gameName=gameName;
     }
@@ -68,16 +65,28 @@ const Games = () => {
     if(gameUrl !=''){
         finalDate.videoUrl=gameUrl;
     }
-    console.log(finalDate);
-    try{
-      const response=  axios.patch(`https://www.playwith5.com/el3b-server/api/v1/games/?name="${oldGameName}"`, finalDate ).then((res)=>{
-        window.alert('done');
-      }).catch((err)=>console.log(err))
-    }
-    catch(err){
-      console.log(err)
 
+
+    if(finalDate){
+      try{
+        axios.patch(`https://www.playwith5.com/el3b-server/api/v1/games/?name="${oldGameName}"`,finalDate).then((res)=>window.alert('update done'))
+      }catch(err){
+        console.log(err);
+      }
     }
+
+    //  try{
+    //      axios.patch(`https://www.playwith5.com/el3b-server/api/v1/games/?name="${oldGameName}"`, {
+    //       videoUrl:gameUrl
+    //      } ).then((res)=>{
+    //     console.log(res);  
+    //     window.alert('from update done');
+    //     }).catch((err)=> console.log(err))
+    //   }
+    //   catch(err){
+    //     console.log(err)
+    //   }
+    
     document.querySelector('.updategameName').value="";
     document.querySelector('.updategameExplain').value="";
     document.querySelector('.updategameUrl').value="";
@@ -85,7 +94,7 @@ const Games = () => {
   }
 
   if(deleteGame==='on'){
-    let oldClass=document.getElementById('deleteGameselected').value;
+    let oldClass=document.getElementById('deletegames').value;
     console.log(oldClass);
     try{
       const response=  axios.delete(`https://www.playwith5.com/el3b-server/api/v1/games/?name="${oldClass}"`).then((res)=>{
@@ -164,8 +173,7 @@ const Games = () => {
         <h2>for update game :</h2>
         <select name="updategames" id="updategames" >
             {
-                ClassGames &&
-              ClassGames.map((ele,index)=>{
+                ClassGames && ClassGames.map((ele,index)=>{
                 return(
                   <option key={index} id='updateGameselect' value={ele._id}>
                       {ele.gameName}
