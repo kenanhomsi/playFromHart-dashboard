@@ -23,13 +23,22 @@ function App() {
     let pass=document.getElementById('password').value ;
     if(user == 'ahmad' && pass=="@@123456789"){
       setPassword('on');
+      
     }
-
   }
+
+  
+useEffect(()=>{
+  localStorage.setItem('passwordState','on')
+//   setPassword(pass);
+},[Password])
+const pass = localStorage.getItem("passwordState");
+  
+
   return (  
     <>
     {
-      Password === 'off' 
+      pass === 'off' 
       &&<div className='login'>
       <img src={logo} alt="logo" />
       <form action="">
@@ -42,7 +51,7 @@ function App() {
       </div>
     }
 
-{ Password === 'on' &&
+{ pass === 'on' &&
   <>
   <div className='Navbar'>
    <img src={logo} alt="logo" />
