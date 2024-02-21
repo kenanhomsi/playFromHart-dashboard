@@ -21,7 +21,7 @@ function App() {
   const handleLogin=()=>{
     let user=document.getElementById('username').value ;
     let pass=document.getElementById('password').value ;
-    if(user == 'ahmad' && pass=="123456789"){
+    if(user == 'ahmad' && pass=="@@123456789"){
       setPassword('on');
     }
 
@@ -29,7 +29,8 @@ function App() {
   return (  
     <>
     {
-      Password === 'off' &&<div className='login'>
+      Password === 'off' 
+      &&<div className='login'>
       <img src={logo} alt="logo" />
       <form action="">
         <label htmlFor="">User Name :</label>
