@@ -20,6 +20,10 @@ const Games = () => {
     }
   },[playerClass])
 
+  // if(ClassGames.length == 0 ){
+  //   console.log('empty')
+  // }
+  // console.log(ClassGames.length);
   if(NewGame==='on'){
     let gameName =document.querySelector('.NewgameName').value;
     let gameExplian= document.querySelector('.NewgameExplain').value;
@@ -120,8 +124,10 @@ const Games = () => {
        <div className='GetGames'>
        <h2> show game :</h2>
        <div className='showAllGames'>
+     
             {
-                ClassGames && 
+              ClassGames &&
+                ClassGames.length !== 0 && 
                 
                     <>
                     <p><span>name:</span>{ClassGames[GamesNumber ].gameName}</p><br />
