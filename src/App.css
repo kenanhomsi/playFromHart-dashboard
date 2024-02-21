@@ -284,3 +284,33 @@ font-size: 20px;
   cursor: pointer;
 }
 
+.login{
+  background-color: #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.login img{
+  width: 200px;
+}
+.login form{
+  display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 25px;
+}
+.login input{
+  padding: 10px;
+    font-size: 20px;
+}
+.login button{
+  padding: 10px;
+    font-size: 18px;
+    border-radius: 15px;
+    border: 0;
+    cursor: pointer;
+    background-color: var(--mainColor);
+    color: white;
+}
